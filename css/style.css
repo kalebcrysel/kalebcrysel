@@ -64,6 +64,7 @@ body{
 #sidebar{
     float: right;
     width: 30%;
+    height: 500px;
     background-color: #333;
     color: #fff;
     padding: 10px;
