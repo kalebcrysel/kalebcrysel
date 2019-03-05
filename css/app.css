@@ -1,0 +1,206 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    font-family: 'Coda', cursive;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1, h2, h3 {
+    font-weight: 300;
+}
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+    width: 480px;
+    min-height: 480px;
+    background: linear-gradient(160deg, #00B8DA 0%, #B8DA00 100%);
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 2em;
+    list-style: none;
+}
+
+.deck .card {
+    height: 90px;
+    width: 90px;
+    background: #2e3d49;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.disabled{
+    cursor: none;
+}
+
+.deck .card.open {
+    transform: rotateY(0);
+    background: #02b3e4;
+    cursor: default;
+}
+
+.deck .card.show {
+    font-size: 45px;
+}
+
+.deck .card.match {
+    cursor: default;
+    background: #02ccba;
+    font-size: 45px;
+}
+
+.deck .card.wrong{
+    cursor: default;
+    background: red;
+}
+
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 160px);
+    grid-template-rows: repeat(2, 35px);
+    align-items: flex-end;
+    justify-items: center;
+}
+
+.rating{
+    grid-column: 1 / 1;
+    grid-row: 2 / 2;
+    justify-self: left;
+    font-size: 15px;
+}
+
+.score-panel .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.score-panel .stars li {
+    list-style: none;
+    display: inline-block;
+}
+
+.score-panel .guesses{
+    font-size: 15px;
+    justify-self: left;
+}
+
+.score-panel .timer{
+    font-size: 25px;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    align-self: center;
+}
+
+.score-panel .restart {
+    grid-column: 3 / 3;
+    grid-row: 1 / 1;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    justify-self: end;
+}
+
+.score-panel .restart:hover{
+    font-weight: bold;
+}
+
+#click-blocker{
+    z-index: 1;
+    display: none;
+}
+
+.modal{
+    display: none;
+    z-index: 1;
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+}
+
+.modal .popup-container{
+    display: grid;
+    grid-template-rows: repeat(4, 60px);
+    justify-items: center;
+    align-items: center;
+    margin-top: 250px;
+    margin-bottom: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 450px;
+    background: linear-gradient(160deg, #916AC0 10%, #C06A6E 100%);
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    border-radius: 8px;
+    cursor: default;
+}
+
+.modal #congrats{
+    grid-row: 1 / 1;
+    font-weight: normal;
+}
+
+.modal #guess-recap{
+    grid-row: 2 / 2;
+    font-weight: normal;
+}
+
+.modal #rating-recap{
+    grid-row: 3 / 3;
+    font-weight: normal;
+}
+
+.modal #play-button{
+    grid-row: 4 / 4;
+    font-weight: 300;
+}
+
+.modal #play-button:hover{
+    font-weight: bolder;
+    cursor: pointer;
+}
