@@ -143,11 +143,11 @@ function updateRating() {
         $(".fa-star.1").show();
         rating=1;      
     }
-    if(moves<20) {
+    if(moves<25) {
         $(".fa-star.2").show();
         rating=2;
     }
-    if(moves<10) {
+    if(moves<15) {
         $(".fa-star.3").show();
         rating=3;
     }
